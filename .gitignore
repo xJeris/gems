@@ -16,5 +16,9 @@ Desktop.ini
 # Claude Code
 CLAUDE.md
 
+# Distribution
+dist/
+*.zip
+
 # Reference files (not needed by users)
 reference/
