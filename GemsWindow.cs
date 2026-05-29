@@ -310,7 +310,7 @@ namespace ErenshorGems
             _board.Reset();
             _currentPiece = null;
             _nextType = _board.RandomGem();
-            _state = GameState.Playing;
+            _state = GameState.Instructions;
             _dropAccumulator = 0;
             _announcedWave = 1;
             _waveAnnouncementTime = 0;
@@ -640,13 +640,24 @@ namespace ErenshorGems
 
         private void DrawButtons()
         {
-            float btnY = ContentTop + GameViewHeight - 60;
+            float btnY = ContentTop + GameViewHeight - 90;
             if (GUI.Button(new Rect(SidebarX, btnY, 82, 24), "Start", _buttonStyle))
             {
-                StartGame();
+                if (_state == GameState.Instructions)
+                    _state = GameState.Playing;
+                else if (_state == GameState.Paused)
+                    _state = GameState.Playing;
             }
 
-            if (GUI.Button(new Rect(SidebarX, btnY + 30, 82, 24), "Done", _buttonStyle))
+            if (_state != GameState.Instructions)
+            {
+                if (GUI.Button(new Rect(SidebarX, btnY + 30, 82, 24), "Reset", _buttonStyle))
+                {
+                    StartGame();
+                }
+            }
+
+            if (GUI.Button(new Rect(SidebarX, btnY + 60, 82, 24), "Done", _buttonStyle))
             {
                 if (_state == GameState.Playing)
                     _state = GameState.Paused;

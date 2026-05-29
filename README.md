@@ -15,7 +15,7 @@ A match-3 falling-block puzzle game for [Erenshor](https://store.steampowered.co
 
 1. Install [BepInEx 5.4.x](https://github.com/BepInEx/BepInEx/releases) for Erenshor
 2. Download `ErenshorGems.dll` from [Releases](../../releases)
-3. Copy to `Erenshor Playtest/BepInEx/plugins/gems/`
+3. Copy to `Erenshor Playtest/BepInEx/plugins/Gems/`
 4. Launch Erenshor and type `/icons` in chat to open the game
 
 ## How to Play
@@ -23,6 +23,9 @@ A match-3 falling-block puzzle game for [Erenshor](https://store.steampowered.co
 - **Left/Right arrows** to move the falling gem
 - **Down arrow** to fast-drop
 - **Click the game area** to pause/unpause
+- **Start** resumes a paused game or begins from the instruction screen
+- **Reset** restarts the game and shows the instructions again
+- **Done** pauses and closes the window
 - **Match 3+** identical gems in any direction (horizontal, vertical, diagonal) to clear them
 
 ### Blue Gems (Positive)

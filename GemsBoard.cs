@@ -121,8 +121,8 @@ namespace ErenshorGems
         // Wave progression
         public const int GemsPerWave = 50;
         public const float BaseDropInterval = 0.8f;
-        public const float SpeedMultiplierPerWave = 0.88f;
         public const float MinDropInterval = 0.15f;
+        public const int MaxSpeedWave = 20;
 
         // Active special effects
         public ActiveEffects Effects { get; private set; } = new ActiveEffects();
@@ -159,7 +159,9 @@ namespace ErenshorGems
 
         public float GetDropInterval()
         {
-            float interval = BaseDropInterval * (float)Math.Pow(SpeedMultiplierPerWave, Wave - 1);
+            int effectiveWave = Math.Min(Wave, MaxSpeedWave);
+            float t = (effectiveWave - 1) / (float)(MaxSpeedWave - 1);
+            float interval = BaseDropInterval + t * (MinDropInterval - BaseDropInterval);
             if (Effects.SpeedBoosted)
                 interval *= 0.5f; // red: faster
             if (Effects.SpeedSlowed)
@@ -350,7 +352,7 @@ namespace ErenshorGems
             GemsCleared += cleared;
 
             // Check wave advancement
-            int newWave = (GemsCleared / GemsPerWave) + 1;
+            int newWave = Math.Min((GemsCleared / GemsPerWave) + 1, 9999);
             if (newWave > Wave)
                 Wave = newWave;
 

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ErenshorGems
 {
-    [BepInPlugin("com.erenshor.gems", "Erenshor Gems", "0.3.0")]
+    [BepInPlugin("com.erenshor.gems", "Erenshor Gems", "0.3.1")]
     public class Plugin : BaseUnityPlugin
     {
         internal static Plugin Instance;
