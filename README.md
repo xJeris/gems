@@ -2,6 +2,8 @@
 
 A match-3 falling-block puzzle game for [Erenshor](https://store.steampowered.com/app/2382520/Erenshor/), inspired by EverQuest's classic `/gems` mini-game. Built as a BepInEx mod using Unity IMGUI.
 
+![Gems Image](sample.png)
+
 ## Features
 
 - **12 gem types** with blue (positive) and red (negative) special effects
